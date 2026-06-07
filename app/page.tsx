@@ -13,9 +13,7 @@ export default function Home() {
   });
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [cookieChoice, setCookieChoice] = useState<string | null>(() =>
-    typeof window !== "undefined" ? localStorage.getItem("cookie-consent") : null
-  );
+  const cookieChoice = "accepted";
 
   const formatNumber = (value: string) => {
     const numbers = value.replace(/\D/g, "");
@@ -40,16 +38,18 @@ export default function Home() {
       setIsSubmitting(true);
 
       try {
-        const response = await fetch("/api/responses", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+        if (cookieChoice === "accepted") {
+          const response = await fetch("/api/responses", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
 
-        if (!response.ok) {
-          throw new Error("Save failed");
+          if (!response.ok) {
+            throw new Error("Save failed");
+          }
         }
 
         setStep(5);
@@ -65,10 +65,6 @@ export default function Home() {
     setStep((prev) => prev + 1);
   };
 
-  const saveCookieChoice = (choice: string) => {
-    localStorage.setItem("cookie-consent", choice);
-    setCookieChoice(choice);
-  };
 
   const back = () => {
     if (step > 1) setStep((prev) => prev - 1);
@@ -111,6 +107,9 @@ export default function Home() {
             >
               Kérdőív kitöltése
             </button>
+            <p className="mt-4 text-sm text-black/60">
+              Az adatok elküldésével hozzájárulsz az adataid kezeléséhez.
+            </p>
           </div>
         )}
 
@@ -379,29 +378,7 @@ export default function Home() {
         )}
       </div>
 
-      {!cookieChoice && (
-        <div className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-3xl rounded-2xl border border-black/20 bg-white p-5 text-black shadow-2xl">
-          <h2 className="text-lg font-extrabold">Sütik kezelése</h2>
-          <p className="mt-2 text-sm leading-6">
-  Az oldal a kérdőív kitöltése során megadott adatokat (cégnév, létszám, havi keret, email cím) tárolja. Az adatokat kizárólag a TenderAI szolgáltatás fejlesztéséhez használjuk, és nem adjuk át harmadik félnek. Az elfogadás vagy elutasítás döntését a böngésződben tároljuk.
-          </p>
 
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-            <button
-              onClick={() => saveCookieChoice("accepted")}
-              className="rounded-xl bg-black px-5 py-3 text-sm font-bold text-white"
-            >
-              Elfogadom
-            </button>
-            <button
-              onClick={() => saveCookieChoice("rejected")}
-              className="rounded-xl border border-black/30 px-5 py-3 text-sm font-bold text-black"
-            >
-              Elutasítom
-            </button>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
