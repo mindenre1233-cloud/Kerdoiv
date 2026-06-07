@@ -383,10 +383,7 @@ export default function Home() {
         <div className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-3xl rounded-2xl border border-black/20 bg-white p-5 text-black shadow-2xl">
           <h2 className="text-lg font-extrabold">Sütik kezelése</h2>
           <p className="mt-2 text-sm leading-6">
-            Az oldal alapvető működéshez szükséges adatokat használhat. Nem
-            használunk marketing sütiket, és nem adunk át adatot hirdetési
-            célra. Az elfogadás vagy elutasítás döntését a böngésződben
-            tároljuk.
+  Az oldal a kérdőív kitöltése során megadott adatokat (cégnév, létszám, havi keret, email cím) tárolja. Az adatokat kizárólag a TenderAI szolgáltatás fejlesztéséhez használjuk, és nem adjuk át harmadik félnek. Az elfogadás vagy elutasítás döntését a böngésződben tároljuk.
           </p>
 
           <div className="mt-4 flex flex-col gap-3 sm:flex-row">
