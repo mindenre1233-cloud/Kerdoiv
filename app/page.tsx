@@ -232,7 +232,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-extrabold leading-tight mb-6 max-w-3xl">
               Mennyit fizetnél havonta egy eszközért,
               ami helyetted figyeli a tendereket,
-              hogy soha ne maradj le egy jó munkáról?
+              hogy soha ne maradj le egy jó munkáról? *
             </h2>
 
             <div className="relative max-w-xl">
