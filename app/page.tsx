@@ -344,46 +344,34 @@ export default function Home() {
 
         {/* THANK YOU */}
         {step === 5 && (
-          <div className="max-w-3xl">
-            <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
-              Köszönjük, hogy kitöltötted a kérdőívet!
-            </h2>
+        <div className="max-w-3xl">
+    <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+      Köszönjük! 🎉
+    </h2>
 
-            <p className="text-2xl md:text-3xl font-bold mt-10 leading-relaxed">
-              A TenderAI fejlesztés alatt áll.
-              <br />
-              Amikor elindul, elsőként értesítünk emailben.
-            </p>
+    <p className="text-2xl font-bold mt-8 leading-relaxed">
+      Az első <strong>20 korai felhasználónak</strong> az első 3 hónap 
+      <strong> félárон</strong> elérhető.
+    </p>
 
-            <div className="mt-12 bg-[#E7C7AA] border border-[#B87C4B] rounded-xl p-6">
-              <h3 className="font-bold text-xl mb-4">
-                Beküldött adatok
-              </h3>
+    <p className="text-lg mt-4 text-black/80">
+      Foglald le a helyed most csak {formatNumber(data.budget)} Ft helyett{" "}
+      <strong>{formatNumber(String(Math.round(Number(data.budget) / 2)))} Ft/hó</strong>{" "}
+      az első 3 hónapban.
+    </p>
 
-              <div className="space-y-2">
-                <p>
-                  <strong>Tevékenység:</strong>{" "}
-                  {data.businessType}
-                </p>
+    <a
+      href="https://buy.stripe.com/XXXX"  
+      className="block mt-8 bg-black text-white px-8 py-4 rounded-xl font-bold text-xl text-center max-w-sm"
+    >
+      Lefoglalom a helyem →
+    </a>
 
-                <p>
-                  <strong>Létszám:</strong>{" "}
-                  {data.employees} fő
-                </p>
-
-                <p>
-                  <strong>Havi keret:</strong>{" "}
-                  {formatNumber(data.budget)} Ft
-                </p>
-
-                <p>
-                  <strong>Email:</strong>{" "}
-                  {data.email}
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
+    <p className="mt-4 text-sm text-black/60">
+      Még nem számítjuk fel csak amikor elindul a TenderAI.
+    </p>
+  </div>
+          )}
       </div>
 
 
