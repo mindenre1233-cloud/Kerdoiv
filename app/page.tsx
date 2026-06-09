@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [step, setStep] = useState(0);
@@ -107,8 +108,15 @@ export default function Home() {
             >
               Kérdőív kitöltése
             </button>
-            <p className="mt-4 text-sm text-black/60">
-              Az adatok elküldésével hozzájárulsz az adataid kezeléséhez.
+            <p className="mt-4 text-sm text-black/70">
+  A kérdőív elküldésével elfogadod és elolvastad az{" "}
+  <Link
+    href="/privacy"
+    className="text-blue-800 underline underline-offset-2 font-semibold hover:text-blue-900"
+  >
+    adatvédelmi tájékoztatót
+  </Link>
+  , és hozzájárulsz adataid kezeléséhez.
             </p>
           </div>
         )}
