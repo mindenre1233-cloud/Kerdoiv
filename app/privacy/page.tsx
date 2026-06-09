@@ -1,7 +1,17 @@
+import Link from "next/link";
+
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#D89A68] text-black">
       <div className="max-w-3xl mx-auto px-6 py-16">
+
+        <Link
+          href="/"
+          className="inline-block mb-10 font-semibold hover:opacity-70"
+        >
+          ← Vissza
+        </Link>
+
         <h1 className="text-4xl md:text-5xl font-extrabold mb-10">
           Adatvédelmi tájékoztató
         </h1>
@@ -11,7 +21,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-bold mb-2">1. Adatkezelő</h2>
             <p>
               Az adatkezelő a TenderAI szolgáltatás üzemeltetője (a továbbiakban: „mi" vagy „Adatkezelő").
-              Elérhetőség: <a href="mailto:info@tenderai.hu" className="underline">info@tenderai.hu</a>
+              Elérhetőség: <a href="mailto:tenderai.official@gmail.com" className="underline">tenderai.official@gmail.com</a>
             </p>
           </section>
 
